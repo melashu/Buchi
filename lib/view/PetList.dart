@@ -57,7 +57,6 @@ class PetList extends StatelessWidget {
           }
         },
       ),
-    
       body: RefreshIndicator(
           onRefresh: () {
             // petNotiffier.getAllPets();
@@ -67,10 +66,22 @@ class PetList extends StatelessWidget {
     );
   }
 
+  // ignore: non_constant_identifier_names
   Widget ViewPets(PetNotiffier petNotiffier) {
     if (petNotiffier.isLoading()) {
-      return const Center(
-        child: CircularProgressIndicator(),
+      return Center(
+        child: Wrap(
+          children: const [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Text(
+                "Please wait....",
+                style: TextStyle(fontSize: 20, color: Colors.redAccent),
+              ),
+            ),
+            CircularProgressIndicator(),
+          ],
+        ),
       );
     } else if (petNotiffier.getFailer() != null) {
       return Center(

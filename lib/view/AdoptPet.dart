@@ -190,7 +190,7 @@ class AdoptPet extends StatelessWidget {
                         primary: Colors.blueAccent,
                         elevation: 10),
                   ),
-                  ElevatedButton(onPressed: () {}, child: Text("View Detail"))
+          
                 ],
               ),
             ),
